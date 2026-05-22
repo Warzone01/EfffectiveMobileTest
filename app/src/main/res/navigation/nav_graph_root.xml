@@ -2,11 +2,11 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/nav_graph_root"
-    app:startDestination="@id/placeholderFragment">
+    app:startDestination="@id/mainContainerFragment">
 
     <fragment
-        android:id="@+id/placeholderFragment"
-        android:name="com.kirdevelopment.efffectivemobiletest.PlaceholderFragment"
-        android:label="@string/placeholder_screen_title" />
+        android:id="@+id/mainContainerFragment"
+        android:name="com.kirdevelopment.efffectivemobiletest.MainContainerFragment"
+        android:label="@string/app_name" />
 
 </navigation>

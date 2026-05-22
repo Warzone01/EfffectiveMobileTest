@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">EfffectiveMobileTest</string>
     <string name="placeholder_screen_title">Каркас проекта готов</string>
+    <string name="tab_home">Главная</string>
+    <string name="tab_favorites">Избранное</string>
+    <string name="tab_account">Аккаунт</string>
 </resources>

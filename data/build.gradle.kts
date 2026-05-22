@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.kotlin.serialization)
     alias(libs.plugins.google.hilt)
     alias(libs.plugins.google.ksp)
 }
@@ -29,6 +30,8 @@ dependencies {
     implementation(project(":core:model"))
     implementation(project(":core:network"))
     implementation(project(":core:database"))
+    implementation(libs.squareup.retrofit)
+    implementation(libs.kotlinx.serialization.json)
 
     implementation(libs.google.hilt.android)
     ksp(libs.google.hilt.compiler)

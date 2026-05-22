@@ -2,7 +2,9 @@ package com.kirdevelopment.data.di
 
 import com.kirdevelopment.data.local.FavoritesLocalDataSource
 import com.kirdevelopment.data.local.FavoritesLocalDataSourceImpl
+import com.kirdevelopment.data.repository.CoursesRepositoryImpl
 import com.kirdevelopment.data.repository.FavoritesRepositoryImpl
+import com.kirdevelopment.domain.repository.CoursesRepository
 import com.kirdevelopment.domain.repository.FavoritesRepository
 import dagger.Binds
 import dagger.Module
@@ -25,4 +27,10 @@ abstract class DataLocalModule {
     abstract fun bindFavoritesRepository(
         impl: FavoritesRepositoryImpl
     ): FavoritesRepository
+
+    @Binds
+    @Singleton
+    abstract fun bindCoursesRepository(
+        impl: CoursesRepositoryImpl
+    ): CoursesRepository
 }

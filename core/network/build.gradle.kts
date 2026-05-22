@@ -24,6 +24,7 @@ android {
 
 dependencies {
     implementation(project(":core:common"))
+    implementation(libs.google.hilt.android)
     implementation(libs.squareup.retrofit)
     implementation(libs.squareup.okhttp)
     implementation(libs.squareup.okhttp.logging)

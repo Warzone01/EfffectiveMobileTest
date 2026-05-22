@@ -9,7 +9,7 @@ import com.kirdevelopment.core.database.entity.FavoriteCourseEntity
 import kotlinx.coroutines.flow.Flow
 
 @Dao
-interface FavoriteCoursesDao {
+interface FavoritesDao {
 
     @Query("SELECT * FROM ${DatabaseConstants.TABLE_FAVORITE_COURSES}")
     fun observeFavorites(): Flow<List<FavoriteCourseEntity>>
@@ -25,4 +25,7 @@ interface FavoriteCoursesDao {
 
     @Query("SELECT EXISTS(SELECT 1 FROM ${DatabaseConstants.TABLE_FAVORITE_COURSES} WHERE ${DatabaseConstants.COLUMN_COURSE_ID} = :courseId)")
     suspend fun isFavorite(courseId: Long): Boolean
+
+    @Query("DELETE FROM ${DatabaseConstants.TABLE_FAVORITE_COURSES}")
+    suspend fun clearFavorites()
 }

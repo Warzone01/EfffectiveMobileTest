@@ -4,7 +4,7 @@ import androidx.room.Database
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import com.kirdevelopment.core.database.converter.DatabaseConverters
-import com.kirdevelopment.core.database.dao.FavoriteCoursesDao
+import com.kirdevelopment.core.database.dao.FavoritesDao
 import com.kirdevelopment.core.database.entity.FavoriteCourseEntity
 
 /**
@@ -21,5 +21,5 @@ import com.kirdevelopment.core.database.entity.FavoriteCourseEntity
 )
 @TypeConverters(DatabaseConverters::class)
 abstract class AppDatabase : RoomDatabase() {
-    abstract fun favoriteCoursesDao(): FavoriteCoursesDao
+    abstract fun favoritesDao(): FavoritesDao
 }

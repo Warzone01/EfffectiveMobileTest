@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="nav_height">80dp</dimen>
+    <dimen name="nav_top_stroke">1.5dp</dimen>
+    <dimen name="nav_active_indicator_width">64dp</dimen>
+    <dimen name="nav_active_indicator_height">32dp</dimen>
+    <dimen name="nav_active_indicator_radius">16dp</dimen>
+    <dimen name="nav_item_padding_top">12dp</dimen>
+    <dimen name="nav_item_padding_bottom">16dp</dimen>
+    <dimen name="nav_label_text_size">12sp</dimen>
+</resources>

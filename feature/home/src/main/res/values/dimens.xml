@@ -26,12 +26,6 @@
     <dimen name="home_course_favorite_size">28dp</dimen>
     <dimen name="home_course_favorite_icon_size">16dp</dimen>
 
-    <dimen name="home_bottom_nav_height">80dp</dimen>
-    <dimen name="home_bottom_nav_chip_width">64dp</dimen>
-    <dimen name="home_bottom_nav_chip_height">32dp</dimen>
-    <dimen name="home_bottom_nav_item_padding_top">12dp</dimen>
-    <dimen name="home_bottom_nav_item_padding_bottom">16dp</dimen>
-
     <dimen name="home_text_headline">22sp</dimen>
     <dimen name="home_text_title">16sp</dimen>
     <dimen name="home_text_body">14sp</dimen>

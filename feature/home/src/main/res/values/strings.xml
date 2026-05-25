@@ -9,8 +9,5 @@
     <string name="home_favorite">Избранное</string>
     <string name="home_error_default">Не удалось загрузить курсы</string>
     <string name="home_empty_default">Курсы не найдены</string>
-    <string name="home_bottom_nav_main">Главная</string>
-    <string name="home_bottom_nav_favorites">Избранное</string>
-    <string name="home_bottom_nav_account">Аккаунт</string>
     <string name="home_course_cover">Обложка курса</string>
 </resources>

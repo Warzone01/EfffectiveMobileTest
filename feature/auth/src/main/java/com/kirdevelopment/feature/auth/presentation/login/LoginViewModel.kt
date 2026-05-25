@@ -23,6 +23,11 @@ class LoginViewModel @Inject constructor(
     private val loginUseCase: LoginUseCase
 ) : ViewModel() {
 
+    private companion object {
+        const val VK_URL = "https://vk.com"
+        const val OK_URL = "https://ok.ru"
+    }
+
     private val reducer = LoginReducer()
 
     private val _uiState = MutableStateFlow(LoginUiState())
@@ -40,6 +45,20 @@ class LoginViewModel @Inject constructor(
             is LoginUiEvent.EmailChanged -> onEmailChanged(event.email)
             is LoginUiEvent.PasswordChanged -> onPasswordChanged(event.password)
             LoginUiEvent.LoginClicked -> onLoginClicked()
+            LoginUiEvent.VkClicked -> openVk()
+            LoginUiEvent.OkClicked -> openOk()
+        }
+    }
+
+    private fun openVk() {
+        viewModelScope.launch {
+            _uiEffect.send(LoginUiEffect.OpenBrowser(VK_URL))
+        }
+    }
+
+    private fun openOk() {
+        viewModelScope.launch {
+            _uiEffect.send(LoginUiEffect.OpenBrowser(OK_URL))
         }
     }
 

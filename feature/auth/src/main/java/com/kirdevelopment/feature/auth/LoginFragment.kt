@@ -1,5 +1,7 @@
 package com.kirdevelopment.feature.auth
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -56,6 +58,7 @@ class LoginFragment : Fragment() {
             when (effect) {
                 is LoginUiEffect.NavigateToMain -> navigateToMain()
                 is LoginUiEffect.ShowError -> showToast(effect.message)
+                is LoginUiEffect.OpenBrowser -> openBrowser(effect.url)
             }
         }.launchIn(viewLifecycleOwner.lifecycleScope)
     }
@@ -63,6 +66,12 @@ class LoginFragment : Fragment() {
     private fun setupClickListeners() {
         binding.buttonLogin.setOnClickListener {
             viewModel.onEvent(LoginUiEvent.LoginClicked)
+        }
+        binding.buttonVk.setOnClickListener {
+            viewModel.onEvent(LoginUiEvent.VkClicked)
+        }
+        binding.buttonOk.setOnClickListener {
+            viewModel.onEvent(LoginUiEvent.OkClicked)
         }
     }
 
@@ -100,6 +109,11 @@ class LoginFragment : Fragment() {
 
     private fun showToast(message: String) {
         Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
+    }
+
+    private fun openBrowser(url: String) {
+        val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
+        startActivity(intent)
     }
 
     override fun onDestroyView() {

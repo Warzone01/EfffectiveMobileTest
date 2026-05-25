@@ -10,4 +10,7 @@ sealed interface LoginUiEffect {
 
     /** Показать ошибку пользователю */
     data class ShowError(val message: String) : LoginUiEffect
+
+    /** Открыть браузер по ссылке */
+    data class OpenBrowser(val url: String) : LoginUiEffect
 }

@@ -8,4 +8,6 @@ sealed interface LoginUiEvent {
     data class EmailChanged(val email: String) : LoginUiEvent
     data class PasswordChanged(val password: String) : LoginUiEvent
     data object LoginClicked : LoginUiEvent
+    data object VkClicked : LoginUiEvent
+    data object OkClicked : LoginUiEvent
 }

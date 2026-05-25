@@ -10,6 +10,7 @@ class CourseToHomeCourseUiMapper @Inject constructor() : Mapper<Course, HomeCour
         return HomeCourseUiModel(
             id = input.id,
             title = input.title,
+            description = input.text,
             price = input.price,
             startDate = input.startDate,
             rate = input.rate,

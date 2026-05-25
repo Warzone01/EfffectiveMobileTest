@@ -1,0 +1,7 @@
+<resources>
+    <string name="home_sort">Сортировка</string>
+    <string name="home_search_stub">Поиск (stub)</string>
+    <string name="home_filter_stub">Фильтр (stub)</string>
+    <string name="home_retry">Повторить</string>
+    <string name="home_favorite">Избранное</string>
+</resources>

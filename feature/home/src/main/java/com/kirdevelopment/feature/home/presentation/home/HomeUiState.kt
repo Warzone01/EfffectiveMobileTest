@@ -6,7 +6,8 @@ import com.kirdevelopment.feature.home.presentation.home.model.HomeAdapterItem
 data class HomeUiState(
     val screenState: ScreenState = ScreenState.Loading,
     val items: List<HomeAdapterItem> = emptyList(),
-    val isRefreshing: Boolean = false
+    val isRefreshing: Boolean = false,
+    val isSortDescending: Boolean = true
 )
 
 sealed interface ScreenState {

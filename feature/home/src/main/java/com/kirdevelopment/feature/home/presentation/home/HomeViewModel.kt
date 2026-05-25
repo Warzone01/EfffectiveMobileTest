@@ -49,9 +49,17 @@ class HomeViewModel @Inject constructor(
         when (event) {
             HomeUiEvent.ScreenOpened -> loadCourses()
             HomeUiEvent.RetryClicked -> loadCourses()
+            HomeUiEvent.SortClicked -> toggleSort()
 
             is HomeUiEvent.CourseClicked -> openCourse(event.courseId)
             is HomeUiEvent.FavoriteClicked -> toggleFavorite(event.courseId)
+        }
+    }
+
+    private fun toggleSort() {
+        _uiState.value = _uiState.value.copy(isSortDescending = !_uiState.value.isSortDescending)
+        if (cachedCourses.isNotEmpty()) {
+            publishCourses()
         }
     }
 
@@ -111,7 +119,8 @@ class HomeViewModel @Inject constructor(
     }
 
     private fun publishCourses() {
-        val mergedCourses = mergeFavoriteState(cachedCourses, favoriteIds)
+        val sortedCourses = applySort(cachedCourses)
+        val mergedCourses = mergeFavoriteState(sortedCourses, favoriteIds)
         val items = itemsMapper.map(mergedCourses)
 
         if (items.isEmpty()) {
@@ -125,6 +134,11 @@ class HomeViewModel @Inject constructor(
         return courses.map { course ->
             course.copy(hasLike = course.hasLike || favorites.contains(course.id))
         }
+    }
+
+    private fun applySort(courses: List<Course>): List<Course> {
+        val sortedDesc = sortCoursesUseCase.execute(courses)
+        return if (_uiState.value.isSortDescending) sortedDesc else sortedDesc.reversed()
     }
 
     private fun mapError(error: AppError): UiText {

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="home_screen_horizontal_padding">16dp</dimen>
+    <dimen name="home_top_controls_top">56dp</dimen>
+    <dimen name="home_sort_top">128dp</dimen>
+    <dimen name="home_recycler_top">164dp</dimen>
+
+    <dimen name="home_spacing_xs">4dp</dimen>
+    <dimen name="home_spacing_sm">8dp</dimen>
+    <dimen name="home_spacing_md">12dp</dimen>
+    <dimen name="home_spacing_lg">16dp</dimen>
+
+    <dimen name="home_radius_sm">12dp</dimen>
+    <dimen name="home_radius_md">16dp</dimen>
+    <dimen name="home_radius_lg">20dp</dimen>
+    <dimen name="home_radius_xl">28dp</dimen>
+
+    <dimen name="home_search_height">56dp</dimen>
+    <dimen name="home_filter_size">56dp</dimen>
+    <dimen name="home_search_width">264dp</dimen>
+    <dimen name="home_search_icon_container">48dp</dimen>
+
+    <dimen name="home_course_card_height">236dp</dimen>
+    <dimen name="home_course_cover_height">114dp</dimen>
+    <dimen name="home_course_meta_height">22dp</dimen>
+    <dimen name="home_course_favorite_size">28dp</dimen>
+    <dimen name="home_course_favorite_icon_size">16dp</dimen>
+
+    <dimen name="home_bottom_nav_height">80dp</dimen>
+    <dimen name="home_bottom_nav_chip_width">64dp</dimen>
+    <dimen name="home_bottom_nav_chip_height">32dp</dimen>
+    <dimen name="home_bottom_nav_item_padding_top">12dp</dimen>
+    <dimen name="home_bottom_nav_item_padding_bottom">16dp</dimen>
+
+    <dimen name="home_text_headline">22sp</dimen>
+    <dimen name="home_text_title">16sp</dimen>
+    <dimen name="home_text_body">14sp</dimen>
+    <dimen name="home_text_small">12sp</dimen>
+</resources>

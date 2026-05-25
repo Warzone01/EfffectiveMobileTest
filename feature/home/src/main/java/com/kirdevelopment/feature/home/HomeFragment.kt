@@ -11,6 +11,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.kirdevelopment.feature.home.presentation.home.ui.HomeItemSpacingDecoration
 import com.kirdevelopment.core.common.ui.UiText
 import com.kirdevelopment.feature.home.databinding.FragmentHomeBinding
 import com.kirdevelopment.feature.home.presentation.home.HomeUiEffect
@@ -69,6 +70,10 @@ class HomeFragment : Fragment() {
     private fun setupRecycler() {
         binding.recyclerHome.layoutManager = LinearLayoutManager(requireContext())
         binding.recyclerHome.adapter = homeAdapter
+        if (binding.recyclerHome.itemDecorationCount == 0) {
+            val spacing = resources.getDimensionPixelSize(R.dimen.home_spacing_lg)
+            binding.recyclerHome.addItemDecoration(HomeItemSpacingDecoration(spacing))
+        }
     }
 
     private fun setupListeners() {

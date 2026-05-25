@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="TextAppearance.Home.TitleLarge" parent="TextAppearance.Material3.TitleLarge">
+        <item name="android:textSize">@dimen/home_text_headline</item>
+        <item name="android:textFontWeight">400</item>
+        <item name="android:lineHeight">28sp</item>
+        <item name="android:textColor">@color/home_text_primary</item>
+    </style>
+
+    <style name="TextAppearance.Home.TitleMedium" parent="TextAppearance.Material3.TitleMedium">
+        <item name="android:textSize">@dimen/home_text_title</item>
+        <item name="android:textFontWeight">500</item>
+        <item name="android:lineHeight">18sp</item>
+        <item name="android:textColor">@color/home_text_primary</item>
+    </style>
+
+    <style name="TextAppearance.Home.BodyMedium" parent="TextAppearance.Material3.BodyMedium">
+        <item name="android:textSize">@dimen/home_text_body</item>
+        <item name="android:textFontWeight">400</item>
+        <item name="android:lineHeight">20sp</item>
+        <item name="android:textColor">@color/home_text_primary</item>
+    </style>
+
+    <style name="TextAppearance.Home.BodySmall" parent="TextAppearance.Material3.BodySmall">
+        <item name="android:textSize">@dimen/home_text_small</item>
+        <item name="android:textFontWeight">400</item>
+        <item name="android:lineHeight">16sp</item>
+        <item name="android:textColor">@color/home_text_primary_70</item>
+    </style>
+
+    <style name="TextAppearance.Home.Caption" parent="TextAppearance.Material3.LabelSmall">
+        <item name="android:textSize">@dimen/home_text_small</item>
+        <item name="android:textFontWeight">400</item>
+        <item name="android:lineHeight">14sp</item>
+        <item name="android:textColor">@color/home_text_primary</item>
+    </style>
+
+    <style name="TextAppearance.Home.LabelSmall" parent="TextAppearance.Material3.LabelSmall">
+        <item name="android:textSize">@dimen/home_text_small</item>
+        <item name="android:textFontWeight">600</item>
+        <item name="android:lineHeight">15sp</item>
+        <item name="android:textColor">@color/home_text_primary</item>
+    </style>
+
+    <style name="Widget.Home.SearchField" parent="Widget.Material3.TextInputLayout.OutlinedBox">
+        <item name="boxBackgroundColor">@color/home_surface_dark</item>
+        <item name="boxStrokeColor">@android:color/transparent</item>
+        <item name="boxStrokeWidth">0dp</item>
+        <item name="boxStrokeWidthFocused">0dp</item>
+        <item name="shapeAppearanceOverlay">@style/ShapeAppearance.Home.Pill28</item>
+        <item name="android:textColorHint">@color/home_text_primary_50</item>
+    </style>
+
+    <style name="ShapeAppearance.Home.Pill28" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">@dimen/home_radius_xl</item>
+    </style>
+
+</resources>

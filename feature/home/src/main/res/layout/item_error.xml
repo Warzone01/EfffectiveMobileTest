@@ -4,20 +4,22 @@
     android:layout_height="wrap_content"
     android:gravity="center"
     android:orientation="vertical"
-    android:padding="24dp">
+    android:paddingTop="24dp"
+    android:paddingBottom="24dp">
 
     <TextView
         android:id="@+id/error_message"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="@style/TextAppearance.Material3.BodyLarge" />
+        android:textAppearance="@style/TextAppearance.Home.BodyMedium" />
 
     <TextView
         android:id="@+id/error_retry"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="@dimen/home_spacing_sm"
         android:text="@string/home_retry"
-        android:textAppearance="@style/TextAppearance.Material3.LabelLarge" />
+        android:textAppearance="@style/TextAppearance.Home.LabelSmall"
+        android:textColor="@color/home_primary_green" />
 
 </LinearLayout>

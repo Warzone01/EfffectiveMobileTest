@@ -2,8 +2,8 @@ package com.kirdevelopment.feature.auth.presentation.login
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.kirdevelopment.core.common.error.AppError
 import com.kirdevelopment.core.common.result.AppResult
-import com.kirdevelopment.feature.auth.domain.model.ValidationState
 import com.kirdevelopment.feature.auth.domain.usecase.LoginUseCase
 import com.kirdevelopment.feature.auth.domain.usecase.LoginValidationResult
 import com.kirdevelopment.feature.auth.domain.usecase.ValidateLoginFormUseCase
@@ -22,6 +22,8 @@ class LoginViewModel @Inject constructor(
     private val validateLoginForm: ValidateLoginFormUseCase,
     private val loginUseCase: LoginUseCase
 ) : ViewModel() {
+
+    private val reducer = LoginReducer()
 
     private val _uiState = MutableStateFlow(LoginUiState())
     val uiState: StateFlow<LoginUiState> = _uiState.asStateFlow()
@@ -42,17 +44,15 @@ class LoginViewModel @Inject constructor(
     }
 
     private fun onEmailChanged(email: String) {
-        _uiState.value = _uiState.value.copy(
-            email = ValidationState.valid(email),
-            loginError = null
-        )
+        val currentState = _uiState.value
+        val validation = validateLoginForm(email = email, password = currentState.password.value)
+        reduce { reducer.onEmailChanged(it, email, validation) }
     }
 
     private fun onPasswordChanged(password: String) {
-        _uiState.value = _uiState.value.copy(
-            password = ValidationState.valid(password),
-            loginError = null
-        )
+        val currentState = _uiState.value
+        val validation = validateLoginForm(email = currentState.email.value, password = password)
+        reduce { reducer.onPasswordChanged(it, password, validation) }
     }
 
     private fun onLoginClicked() {
@@ -62,27 +62,9 @@ class LoginViewModel @Inject constructor(
             password = currentState.password.value
         )
 
+        reduce { reducer.onLoginValidation(it, validation) }
+
         if (!validation.isValid) {
-            val emailState = if (validation.emailValidation.isValid) {
-                currentState.email
-            } else {
-                ValidationState.invalid(
-                    value = currentState.email.value,
-                    errorMessage = validation.emailValidation.reason.orEmpty()
-                )
-            }
-            val passwordState = if (validation.passwordValidation.isValid) {
-                currentState.password
-            } else {
-                ValidationState.invalid(
-                    value = currentState.password.value,
-                    errorMessage = validation.passwordValidation.reason.orEmpty()
-                )
-            }
-            _uiState.value = currentState.copy(
-                email = emailState,
-                password = passwordState
-            )
             return
         }
 
@@ -91,14 +73,14 @@ class LoginViewModel @Inject constructor(
 
     private fun performLogin() {
         viewModelScope.launch {
-            _uiState.value = _uiState.value.copy(isLoading = true, loginError = null)
+            reduce { reducer.onLoading(it, isLoading = true) }
 
             val result = loginUseCase(
                 email = _uiState.value.email.value,
                 password = _uiState.value.password.value
             )
 
-            _uiState.value = _uiState.value.copy(isLoading = false)
+            reduce { reducer.onLoading(it, isLoading = false) }
 
             when (result) {
                 is AppResult.Success -> {
@@ -107,39 +89,45 @@ class LoginViewModel @Inject constructor(
 
                 is AppResult.Error -> {
                     val error = result.error
-                    val errorMessage = when (error) {
-                        is com.kirdevelopment.core.common.error.AppError.Network -> error.message
-                        is com.kirdevelopment.core.common.error.AppError.Server -> error.message
-                        is com.kirdevelopment.core.common.error.AppError.Validation -> error.message
-                        is com.kirdevelopment.core.common.error.AppError.Database -> error.message
-                        is com.kirdevelopment.core.common.error.AppError.Unknown -> error.throwable?.message
-                    }
-
                     val loginError = when (error) {
-                        is com.kirdevelopment.core.common.error.AppError.Network ->
+                        is AppError.Network ->
                             LoginError.Network(error.code, error.message)
 
-                        is com.kirdevelopment.core.common.error.AppError.Server ->
+                        is AppError.Server ->
                             LoginError.Server(error.code, error.message)
 
-                        is com.kirdevelopment.core.common.error.AppError.Validation ->
+                        is AppError.Validation ->
                             LoginError.Validation(error.field, error.message)
 
-                        is com.kirdevelopment.core.common.error.AppError.Database ->
+                        is AppError.Database ->
                             LoginError.Database(error.message)
 
-                        is com.kirdevelopment.core.common.error.AppError.Unknown ->
+                        is AppError.Unknown ->
                             LoginError.Unknown(error.throwable)
                     }
 
-                    _uiState.value = _uiState.value.copy(loginError = loginError)
+                    reduce { reducer.onLoginFailure(it, loginError) }
                     _uiEffect.send(
                         LoginUiEffect.ShowError(
-                            errorMessage ?: "Неизвестная ошибка"
+                            extractErrorMessage(error)
                         )
                     )
                 }
             }
+        }
+    }
+
+    private fun reduce(block: (LoginUiState) -> LoginUiState) {
+        _uiState.value = block(_uiState.value)
+    }
+
+    private fun extractErrorMessage(error: AppError): String {
+        return when (error) {
+            is AppError.Network -> error.message ?: "Ошибка сети"
+            is AppError.Server -> error.message ?: "Ошибка сервера"
+            is AppError.Validation -> error.message ?: "Ошибка валидации"
+            is AppError.Database -> error.message ?: "Ошибка базы данных"
+            is AppError.Unknown -> error.throwable?.message ?: "Неизвестная ошибка"
         }
     }
 }

@@ -12,4 +12,12 @@ data class LoginUiState(
     val password: ValidationState = ValidationState.valid(),
     val isLoading: Boolean = false,
     val loginError: LoginError? = null
-)
+) {
+    /**
+     * Кнопка входа активна только когда оба поля валидны и нет загрузки.
+     */
+    val isLoginButtonEnabled: Boolean
+        get() = !email.isError && email.value.isNotBlank() &&
+                !password.isError && password.value.isNotBlank() &&
+                !isLoading
+}

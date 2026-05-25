@@ -6,9 +6,8 @@ import com.kirdevelopment.core.common.error.AppError
 import com.kirdevelopment.core.common.result.AppResult
 import com.kirdevelopment.core.common.ui.UiText
 import com.kirdevelopment.core.common.usecase.NoParams
-import com.kirdevelopment.core.model.course.Course
-import com.kirdevelopment.domain.usecase.GetCoursesUseCase
-import com.kirdevelopment.domain.usecase.ObserveFavoritesUseCase
+import com.kirdevelopment.domain.usecase.ObserveCoursesUseCase
+import com.kirdevelopment.domain.usecase.RefreshCoursesUseCase
 import com.kirdevelopment.domain.usecase.ToggleFavoriteUseCase
 import com.kirdevelopment.feature.favorites.presentation.favorites.mapper.CourseToFavoriteCourseUiMapper
 import com.kirdevelopment.feature.favorites.presentation.favorites.mapper.FavoriteCoursesToAdapterItemsMapper
@@ -26,15 +25,14 @@ import kotlinx.coroutines.launch
 
 @HiltViewModel
 class FavoritesViewModel @Inject constructor(
-    private val getCoursesUseCase: GetCoursesUseCase,
-    private val observeFavoritesUseCase: ObserveFavoritesUseCase,
+    private val refreshCoursesUseCase: RefreshCoursesUseCase,
+    private val observeCoursesUseCase: ObserveCoursesUseCase,
     private val toggleFavoriteUseCase: ToggleFavoriteUseCase,
     private val courseMapper: CourseToFavoriteCourseUiMapper,
     private val itemsMapper: FavoriteCoursesToAdapterItemsMapper,
     private val reducer: FavoritesStateReducer
 ) : ViewModel() {
 
-    private var cachedCourses: List<Course> = emptyList()
     private var observeJob: Job? = null
 
     private val _uiState = MutableStateFlow(FavoritesUiState())
@@ -56,14 +54,14 @@ class FavoritesViewModel @Inject constructor(
         viewModelScope.launch {
             reduce { reducer.loading(it) }
 
-            when (val result = getCoursesUseCase(NoParams)) {
-                is AppResult.Success -> {
-                    cachedCourses = result.data
-                    observeFavorites()
-                }
-
+            when (val result = refreshCoursesUseCase(NoParams)) {
+                is AppResult.Success -> observeFavorites()
                 is AppResult.Error -> {
-                    reduce { reducer.error(it, mapError(result.error)) }
+                    if (_uiState.value.items.isEmpty()) {
+                        reduce { reducer.error(it, mapError(result.error)) }
+                    } else {
+                        _uiEffect.send(FavoritesUiEffect.ShowMessage(mapError(result.error)))
+                    }
                 }
             }
         }
@@ -72,14 +70,13 @@ class FavoritesViewModel @Inject constructor(
     private fun observeFavorites() {
         observeJob?.cancel()
         observeJob = viewModelScope.launch {
-            observeFavoritesUseCase(NoParams)
+            observeCoursesUseCase(NoParams)
                 .catch { error ->
                     reduce { reducer.error(it, mapError(AppError.Unknown(error))) }
                 }
-                .collectLatest { favorites ->
-                    val favoriteIds = favorites.map { it.courseId }.toSet()
-                    val favoriteCourses = cachedCourses
-                        .filter { course -> favoriteIds.contains(course.id) }
+                .collectLatest { courses ->
+                    val favoriteCourses = courses
+                        .filter { course -> course.hasLike }
                         .map(courseMapper::map)
                     val items = itemsMapper.map(favoriteCourses)
 

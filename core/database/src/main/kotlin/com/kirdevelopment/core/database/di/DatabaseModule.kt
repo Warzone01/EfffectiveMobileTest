@@ -4,6 +4,7 @@ import android.content.Context
 import androidx.room.Room
 import com.kirdevelopment.core.database.AppDatabase
 import com.kirdevelopment.core.database.DatabaseConstants
+import com.kirdevelopment.core.database.dao.CoursesDao
 import com.kirdevelopment.core.database.dao.FavoritesDao
 import dagger.Module
 import dagger.Provides
@@ -35,5 +36,10 @@ object DatabaseModule {
     @Provides
     fun provideFavoritesDao(database: AppDatabase): FavoritesDao {
         return database.favoritesDao()
+    }
+
+    @Provides
+    fun provideCoursesDao(database: AppDatabase): CoursesDao {
+        return database.coursesDao()
     }
 }

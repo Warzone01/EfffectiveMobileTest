@@ -7,33 +7,33 @@ import com.kirdevelopment.core.common.result.AppResult
 import com.kirdevelopment.core.common.ui.UiText
 import com.kirdevelopment.core.common.usecase.NoParams
 import com.kirdevelopment.core.model.course.Course
-import com.kirdevelopment.domain.usecase.GetCoursesUseCase
-import com.kirdevelopment.domain.usecase.ObserveFavoritesUseCase
+import com.kirdevelopment.domain.usecase.ObserveCoursesUseCase
+import com.kirdevelopment.domain.usecase.RefreshCoursesUseCase
 import com.kirdevelopment.domain.usecase.SortCoursesByPublishDateUseCase
 import com.kirdevelopment.domain.usecase.ToggleFavoriteUseCase
 import com.kirdevelopment.feature.home.presentation.home.mapper.CoursesToAdapterItemsMapper
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 import kotlinx.coroutines.channels.Channel
-import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.catch
+import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.launch
 
 @HiltViewModel
 class HomeViewModel @Inject constructor(
-    private val getCoursesUseCase: GetCoursesUseCase,
+    private val refreshCoursesUseCase: RefreshCoursesUseCase,
+    private val observeCoursesUseCase: ObserveCoursesUseCase,
     private val sortCoursesUseCase: SortCoursesByPublishDateUseCase,
-    private val observeFavoritesUseCase: ObserveFavoritesUseCase,
     private val toggleFavoriteUseCase: ToggleFavoriteUseCase,
     private val itemsMapper: CoursesToAdapterItemsMapper,
     private val reducer: HomeStateReducer
 ) : ViewModel() {
 
     private var cachedCourses: List<Course> = emptyList()
-    private var favoriteIds: Set<Long> = emptySet()
 
     private val _uiState = MutableStateFlow(HomeUiState())
     val uiState: StateFlow<HomeUiState> = _uiState.asStateFlow()
@@ -42,7 +42,7 @@ class HomeViewModel @Inject constructor(
     val uiEffect = _uiEffect.receiveAsFlow()
 
     init {
-        observeFavorites()
+        observeCourses()
     }
 
     fun onEvent(event: HomeUiEvent) {
@@ -67,27 +67,29 @@ class HomeViewModel @Inject constructor(
         viewModelScope.launch {
             reduce { reducer.loading(it) }
 
-            when (val result = getCoursesUseCase(NoParams)) {
-                is AppResult.Success -> {
-                    cachedCourses = sortCoursesUseCase.execute(result.data)
-                    publishCourses()
-                }
-
+            when (val result = refreshCoursesUseCase(NoParams)) {
+                is AppResult.Success -> Unit
                 is AppResult.Error -> {
-                    reduce { reducer.error(it, mapError(result.error)) }
+                    if (cachedCourses.isEmpty()) {
+                        reduce { reducer.error(it, mapError(result.error)) }
+                    } else {
+                        _uiEffect.send(HomeUiEffect.ShowMessage(mapError(result.error)))
+                    }
                 }
             }
         }
     }
 
-    private fun observeFavorites() {
+    private fun observeCourses() {
         viewModelScope.launch {
-            observeFavoritesUseCase(NoParams).collectLatest { favorites ->
-                favoriteIds = favorites.map { it.courseId }.toSet()
-                if (cachedCourses.isNotEmpty()) {
+            observeCoursesUseCase(NoParams)
+                .catch { error ->
+                    reduce { reducer.error(it, mapError(AppError.Unknown(error))) }
+                }
+                .collectLatest { courses ->
+                    cachedCourses = sortCoursesUseCase.execute(courses)
                     publishCourses()
                 }
-            }
         }
     }
 
@@ -120,19 +122,12 @@ class HomeViewModel @Inject constructor(
 
     private fun publishCourses() {
         val sortedCourses = applySort(cachedCourses)
-        val mergedCourses = mergeFavoriteState(sortedCourses, favoriteIds)
-        val items = itemsMapper.map(mergedCourses)
+        val items = itemsMapper.map(sortedCourses)
 
         if (items.isEmpty()) {
             reduce { reducer.empty(it) }
         } else {
             reduce { reducer.content(it, items) }
-        }
-    }
-
-    private fun mergeFavoriteState(courses: List<Course>, favorites: Set<Long>): List<Course> {
-        return courses.map { course ->
-            course.copy(hasLike = course.hasLike || favorites.contains(course.id))
         }
     }
 

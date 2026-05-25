@@ -1,5 +1,7 @@
 package com.kirdevelopment.data.di
 
+import com.kirdevelopment.data.local.CoursesLocalDataSource
+import com.kirdevelopment.data.local.CoursesLocalDataSourceImpl
 import com.kirdevelopment.data.local.FavoritesLocalDataSource
 import com.kirdevelopment.data.local.FavoritesLocalDataSourceImpl
 import com.kirdevelopment.data.repository.CoursesRepositoryImpl
@@ -21,6 +23,12 @@ abstract class DataLocalModule {
     abstract fun bindFavoritesLocalDataSource(
         impl: FavoritesLocalDataSourceImpl
     ): FavoritesLocalDataSource
+
+    @Binds
+    @Singleton
+    abstract fun bindCoursesLocalDataSource(
+        impl: CoursesLocalDataSourceImpl
+    ): CoursesLocalDataSource
 
     @Binds
     @Singleton

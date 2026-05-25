@@ -12,8 +12,7 @@ class CoursesToAdapterItemsMapper @Inject constructor(
     override fun map(input: List<Course>): List<HomeAdapterItem> {
         if (input.isEmpty()) return emptyList()
 
-        val header = HomeAdapterItem.HeaderItem(title = "Курсы")
         val courses = input.map { course -> HomeAdapterItem.CourseItem(courseMapper.map(course)) }
-        return listOf(header) + courses
+        return courses
     }
 }

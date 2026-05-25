@@ -6,7 +6,7 @@ plugins {
 }
 
 android {
-    namespace = "com.kirdevelopment.feature.favorites"
+    namespace = "com.kirdevelopment.feature.details"
     compileSdk = 36
 
     defaultConfig {
@@ -32,12 +32,12 @@ dependencies {
     implementation(project(":core:model"))
     implementation(project(":core:common"))
     implementation(project(":core:ui"))
+
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.androidx.fragment.ktx)
-    implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.material)
-    implementation("androidx.recyclerview:recyclerview:1.3.2")
+    implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.lifecycle.viewmodel.ktx)
 
     implementation(libs.google.hilt.android)

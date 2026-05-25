@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="details_title">Детали курса</string>
+    <string name="details_back">Назад</string>
+    <string name="details_retry">Повторить</string>
+    <string name="details_add_to_favorites">Добавить в избранное</string>
+    <string name="details_remove_from_favorites">Удалить из избранного</string>
+    <string name="details_price">Цена: %1$s</string>
+    <string name="details_date">Старт: %1$s</string>
+    <string name="details_rate">Рейтинг: %1$s</string>
+</resources>

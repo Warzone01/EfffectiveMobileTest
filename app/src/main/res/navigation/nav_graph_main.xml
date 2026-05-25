@@ -12,7 +12,12 @@
         <fragment
             android:id="@+id/homeFragment"
             android:name="com.kirdevelopment.feature.home.HomeFragment"
-            android:label="@string/tab_home" />
+            android:label="@string/tab_home">
+
+            <action
+                android:id="@+id/action_homeFragment_to_detailsFragment"
+                app:destination="@id/detailsFragment" />
+        </fragment>
     </navigation>
 
     <navigation
@@ -22,7 +27,12 @@
         <fragment
             android:id="@+id/favoritesFragment"
             android:name="com.kirdevelopment.feature.favorites.FavoritesFragment"
-            android:label="@string/tab_favorites" />
+            android:label="@string/tab_favorites">
+
+            <action
+                android:id="@+id/action_favoritesFragment_to_detailsFragment"
+                app:destination="@id/detailsFragment" />
+        </fragment>
     </navigation>
 
     <navigation
@@ -34,5 +44,17 @@
             android:name="com.kirdevelopment.feature.account.AccountFragment"
             android:label="@string/tab_account" />
     </navigation>
+
+    <fragment
+        android:id="@+id/detailsFragment"
+        android:name="com.kirdevelopment.feature.details.DetailsFragment"
+        android:label="details">
+
+        <deepLink app:uri="emtest://details/{courseId}" />
+
+        <argument
+            android:name="courseId"
+            app:argType="long" />
+    </fragment>
 
 </navigation>

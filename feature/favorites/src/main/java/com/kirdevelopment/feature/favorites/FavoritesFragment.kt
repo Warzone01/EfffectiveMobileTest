@@ -1,5 +1,6 @@
 package com.kirdevelopment.feature.favorites
 
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,6 +9,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.kirdevelopment.core.common.ui.UiText
 import com.kirdevelopment.feature.favorites.databinding.FragmentFavoritesBinding
@@ -78,10 +80,14 @@ class FavoritesFragment : Fragment() {
     private fun observeEffects() {
         viewModel.uiEffect.onEach { effect ->
             when (effect) {
-                is FavoritesUiEffect.NavigateToCourseDetails -> showToast("Открыть курс ${effect.courseId}")
+                is FavoritesUiEffect.NavigateToCourseDetails -> openDetails(effect.courseId)
                 is FavoritesUiEffect.ShowMessage -> showToast(effect.message.asPlainText())
             }
         }.launchIn(viewLifecycleOwner.lifecycleScope)
+    }
+
+    private fun openDetails(courseId: Long) {
+        findNavController().navigate(Uri.parse("emtest://details/$courseId"))
     }
 
     private fun UiText.asPlainText(): String {

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ripple xmlns:android="http://schemas.android.com/apk/res/android"
+    android:color="@color/auth_ripple_light">
+    <item android:drawable="@drawable/selector_auth_button_social_ok_fill" />
+</ripple>

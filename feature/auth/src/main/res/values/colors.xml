@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="auth_primary_green">#12B956</color>
+    <color name="auth_primary_green_pressed">#0F9F49</color>
+    <color name="auth_primary_blue">#2683ED</color>
+    <color name="auth_primary_blue_pressed">#1F6FC8</color>
+    <color name="auth_primary_orange_start">#F98509</color>
+    <color name="auth_primary_orange_end">#F95D00</color>
+    <color name="auth_primary_orange_start_pressed">#D57408</color>
+    <color name="auth_primary_orange_end_pressed">#D44E00</color>
+
+    <color name="auth_background_dark">#151515</color>
+    <color name="auth_surface_field">#32333A</color>
+    <color name="auth_text_primary">#F2F2F3</color>
+    <color name="auth_text_primary_50">#80F2F2F3</color>
+    <color name="auth_text_accent">#12B956</color>
+    <color name="auth_divider">#4D555E</color>
+    <color name="auth_ripple_light">#33FFFFFF</color>
+</resources>

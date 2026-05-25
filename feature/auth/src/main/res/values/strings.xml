@@ -1,7 +1,14 @@
 <resources>
+    <string name="login_title">Вход</string>
+    <string name="label_email">Email</string>
+    <string name="label_password">Пароль</string>
     <string name="hint_email">Электронная почта</string>
     <string name="hint_password">Пароль</string>
     <string name="button_login">Войти</string>
+    <string name="login_action_signup">Регистрация</string>
+    <string name="login_action_forgot_password">Забыли пароль?</string>
     <string name="button_vk">VK</string>
     <string name="button_ok">OK</string>
+    <string name="cd_social_vk">Войти через VK</string>
+    <string name="cd_social_ok">Войти через OK</string>
 </resources>

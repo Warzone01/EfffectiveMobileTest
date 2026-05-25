@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="TextAppearance.Auth.HeadlineLarge" parent="TextAppearance.Material3.HeadlineLarge">
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textSize">@dimen/auth_text_size_headline_large</item>
+        <item name="android:lineHeight">@dimen/auth_line_height_headline_large</item>
+        <item name="android:textFontWeight">400</item>
+        <item name="android:textColor">@color/auth_text_primary</item>
+    </style>
+
+    <style name="TextAppearance.Auth.TitleMedium" parent="TextAppearance.Material3.TitleMedium">
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textSize">@dimen/auth_text_size_title_medium</item>
+        <item name="android:lineHeight">@dimen/auth_line_height_title_medium</item>
+        <item name="android:textFontWeight">500</item>
+        <item name="android:textColor">@color/auth_text_primary</item>
+    </style>
+
+    <style name="TextAppearance.Auth.BodyMedium" parent="TextAppearance.Material3.BodyMedium">
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textSize">@dimen/auth_text_size_body_medium</item>
+        <item name="android:lineHeight">@dimen/auth_line_height_body_medium</item>
+        <item name="android:textFontWeight">400</item>
+        <item name="android:textColor">@color/auth_text_primary</item>
+    </style>
+
+    <style name="TextAppearance.Auth.LabelSmall" parent="TextAppearance.Material3.LabelSmall">
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textSize">@dimen/auth_text_size_label_small</item>
+        <item name="android:lineHeight">@dimen/auth_line_height_label_small</item>
+        <item name="android:textFontWeight">600</item>
+        <item name="android:textColor">@color/auth_text_primary</item>
+    </style>
+
+    <style name="TextAppearance.Auth.Button" parent="TextAppearance.Material3.LabelLarge">
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textSize">@dimen/auth_text_size_body_medium</item>
+        <item name="android:lineHeight">@dimen/auth_line_height_body_medium</item>
+        <item name="android:textFontWeight">500</item>
+    </style>
+
+    <style name="Widget.Auth.Input" parent="Widget.AppCompat.EditText">
+        <item name="android:layout_height">@dimen/auth_input_height</item>
+        <item name="android:background">@drawable/selector_auth_input_background</item>
+        <item name="android:paddingStart">@dimen/auth_input_horizontal_padding</item>
+        <item name="android:paddingEnd">@dimen/auth_input_horizontal_padding</item>
+        <item name="android:textColor">@color/auth_text_primary</item>
+        <item name="android:textColorHint">@color/auth_text_primary_50</item>
+        <item name="android:textAppearance">@style/TextAppearance.Auth.BodyMedium</item>
+    </style>
+
+    <style name="Widget.Auth.Button.Primary" parent="Widget.Material3.Button">
+        <item name="android:layout_height">@dimen/auth_button_height</item>
+        <item name="android:background">@drawable/bg_auth_button_primary</item>
+        <item name="android:textColor">@color/selector_auth_button_primary_text</item>
+        <item name="android:textAppearance">@style/TextAppearance.Auth.Button</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="android:insetLeft">0dp</item>
+        <item name="android:insetRight">0dp</item>
+        <item name="android:paddingStart">@dimen/auth_button_horizontal_padding</item>
+        <item name="android:paddingEnd">@dimen/auth_button_horizontal_padding</item>
+    </style>
+
+    <style name="Widget.Auth.Button.Social" parent="Widget.Material3.Button">
+        <item name="android:layout_height">@dimen/auth_button_height</item>
+        <item name="android:textAppearance">@style/TextAppearance.Auth.Button</item>
+        <item name="iconPadding">0dp</item>
+        <item name="iconTint">@color/auth_text_primary</item>
+        <item name="iconSize">@dimen/auth_social_icon_size</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="android:insetLeft">0dp</item>
+        <item name="android:insetRight">0dp</item>
+        <item name="android:minWidth">0dp</item>
+        <item name="android:minHeight">0dp</item>
+    </style>
+
+</resources>

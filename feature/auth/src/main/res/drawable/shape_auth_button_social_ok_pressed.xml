@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="rectangle">
+    <corners android:radius="@dimen/auth_button_radius" />
+    <gradient
+        android:angle="270"
+        android:startColor="@color/auth_primary_orange_start_pressed"
+        android:endColor="@color/auth_primary_orange_end_pressed" />
+</shape>

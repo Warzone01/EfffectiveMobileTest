@@ -1,6 +1,7 @@
 package com.kirdevelopment.feature.favorites.presentation.favorites.mapper
 
 import com.kirdevelopment.core.common.mapper.Mapper
+import com.kirdevelopment.core.common.ui.UiText
 import com.kirdevelopment.feature.favorites.presentation.favorites.FavoritesScreenState
 import com.kirdevelopment.feature.favorites.presentation.favorites.FavoritesUiState
 import com.kirdevelopment.feature.favorites.presentation.favorites.model.FavoritesAdapterItem
@@ -12,7 +13,14 @@ class FavoritesStateToAdapterItemsMapper @Inject constructor() : Mapper<Favorite
             FavoritesScreenState.Loading -> listOf(FavoritesAdapterItem.LoadingItem)
             FavoritesScreenState.Content -> input.items
             FavoritesScreenState.Empty -> listOf(FavoritesAdapterItem.EmptyItem(message = "Пока нет избранных курсов"))
-            FavoritesScreenState.Error -> listOf(FavoritesAdapterItem.ErrorItem(message = "Не удалось загрузить избранное"))
+            is FavoritesScreenState.Error -> listOf(FavoritesAdapterItem.ErrorItem(message = input.screenState.message.asPlainText()))
+        }
+    }
+
+    private fun UiText.asPlainText(): String {
+        return when (this) {
+            is UiText.Dynamic -> value
+            is UiText.Resource -> "Не удалось загрузить избранное"
         }
     }
 }

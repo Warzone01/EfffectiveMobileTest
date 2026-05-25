@@ -4,14 +4,25 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
 import com.kirdevelopment.feature.auth.databinding.FragmentLoginBinding
+import com.kirdevelopment.feature.auth.presentation.login.LoginUiEffect
+import com.kirdevelopment.feature.auth.presentation.login.LoginUiEvent
+import com.kirdevelopment.feature.auth.presentation.login.LoginViewModel
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.launchIn
+import kotlinx.coroutines.flow.onEach
 
 @AndroidEntryPoint
 class LoginFragment : Fragment() {
+
+    private val viewModel: LoginViewModel by viewModels()
 
     private var _binding: FragmentLoginBinding? = null
     private val binding: FragmentLoginBinding
@@ -28,10 +39,33 @@ class LoginFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        setupObservers()
+        setupClickListeners()
+    }
 
+    private fun setupObservers() {
+        viewModel.uiState.onEach { state ->
+            binding.inputEmail.setText(state.email.value)
+            binding.inputPassword.setText(state.password.value)
+
+            binding.inputEmail.error = if (state.email.isError) state.email.errorMessage else null
+            binding.inputPassword.error = if (state.password.isError) state.password.errorMessage else null
+
+            binding.buttonLogin.isEnabled = !state.isLoading
+            binding.buttonLogin.isVisible = true
+        }.launchIn(viewLifecycleOwner.lifecycleScope)
+
+        viewModel.uiEffect.onEach { effect ->
+            when (effect) {
+                is LoginUiEffect.NavigateToMain -> navigateToMain()
+                is LoginUiEffect.ShowError -> showToast(effect.message)
+            }
+        }.launchIn(viewLifecycleOwner.lifecycleScope)
+    }
+
+    private fun setupClickListeners() {
         binding.buttonLogin.setOnClickListener {
-            // TODO: валидация + вызов use case входа
-            navigateToMain()
+            viewModel.onEvent(LoginUiEvent.LoginClicked)
         }
     }
 
@@ -56,6 +90,10 @@ class LoginFragment : Fragment() {
             .build()
 
         navController.navigate(mainContainerId, null, options)
+    }
+
+    private fun showToast(message: String) {
+        Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
     }
 
     override fun onDestroyView() {

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="account_stub_title">Аккаунт</string>
+    <string name="account_stub_description">Раздел в разработке. Здесь появятся данные профиля и настройки.</string>
+    <string name="account_stub_icon_description">Иконка аккаунта</string>
+</resources>

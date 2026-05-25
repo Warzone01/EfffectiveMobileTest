@@ -2,8 +2,26 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/nav_graph_root"
-    app:startDestination="@id/mainContainerFragment">
+    app:startDestination="@id/nav_graph_auth">
 
+    <!--
+    Вложенный граф авторизации.
+    После успешного входа переключает на mainContainerFragment с очисткой back stack.
+    -->
+    <navigation
+        android:id="@+id/nav_graph_auth"
+        app:startDestination="@id/loginFragment">
+
+        <fragment
+            android:id="@+id/loginFragment"
+            android:name="com.kirdevelopment.feature.auth.LoginFragment"
+            android:label="@string/title_login" />
+    </navigation>
+
+    <!--
+    Основной граф с BottomNavigation.
+    После авторизации становится корневым — назад к логину уже не вернуться.
+    -->
     <fragment
         android:id="@+id/mainContainerFragment"
         android:name="com.kirdevelopment.efffectivemobiletest.MainContainerFragment"

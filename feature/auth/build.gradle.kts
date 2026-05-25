@@ -36,6 +36,7 @@ dependencies {
     implementation(libs.androidx.fragment.ktx)
     implementation(libs.androidx.material)
     implementation(libs.androidx.lifecycle.viewmodel.ktx)
+    implementation(libs.androidx.navigation.fragment.ktx)
 
     implementation(libs.google.hilt.android)
     ksp(libs.google.hilt.compiler)

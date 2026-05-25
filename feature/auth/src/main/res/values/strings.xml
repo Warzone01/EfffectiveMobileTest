@@ -1,0 +1,5 @@
+<resources>
+    <string name="hint_email">Электронная почта</string>
+    <string name="hint_password">Пароль</string>
+    <string name="button_login">Войти</string>
+</resources>

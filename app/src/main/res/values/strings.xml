@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">EfffectiveMobileTest</string>
+    <string name="title_login">Вход</string>
     <string name="placeholder_screen_title">Каркас проекта готов</string>
     <string name="tab_home">Главная</string>
     <string name="tab_favorites">Избранное</string>

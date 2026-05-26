@@ -18,6 +18,10 @@
         <item name="itemPaddingTop">@dimen/nav_item_padding_top</item>
         <item name="itemPaddingBottom">@dimen/nav_item_padding_bottom</item>
         <item name="labelVisibilityMode">labeled</item>
-    </style>
 
+        <!-- Отключаем анимацию -->
+        <item name="android:animateLayoutChanges">false</item>
+        <item name="android:clipChildren">false</item>
+        <item name="android:clipToPadding">false</item>
+    </style>
 </resources>

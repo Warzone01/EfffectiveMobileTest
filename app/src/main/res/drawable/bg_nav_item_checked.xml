@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <inset xmlns:android="http://schemas.android.com/apk/res/android"
     android:insetLeft="22dp"
-    android:insetTop="12dp"
+    android:insetTop="16dp"
     android:insetRight="22dp"
-    android:insetBottom="36dp">
+    android:insetBottom="32dp">
     <shape android:shape="rectangle">
         <corners android:radius="@dimen/nav_active_indicator_radius" />
         <solid android:color="@color/nav_surface_field" />

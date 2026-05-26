@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="favorites_screen_padding_horizontal">16dp</dimen>
+    <dimen name="favorites_header_top">40dp</dimen>
+    <dimen name="favorites_header_height">60dp</dimen>
+    <dimen name="favorites_list_top">100dp</dimen>
+    <dimen name="favorites_item_spacing">16dp</dimen>
+
+    <dimen name="favorites_card_height">236dp</dimen>
+    <dimen name="favorites_cover_height">114dp</dimen>
+    <dimen name="favorites_card_radius">16dp</dimen>
+    <dimen name="favorites_cover_radius">12dp</dimen>
+    <dimen name="favorites_chip_radius">12dp</dimen>
+    <dimen name="favorites_icon_button_size">28dp</dimen>
+
+    <dimen name="favorites_text_title_large">22sp</dimen>
+    <dimen name="favorites_text_title_medium">16sp</dimen>
+    <dimen name="favorites_text_body_medium">14sp</dimen>
+    <dimen name="favorites_text_body_small">12sp</dimen>
+</resources>

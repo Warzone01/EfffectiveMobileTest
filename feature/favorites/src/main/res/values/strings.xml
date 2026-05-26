@@ -3,4 +3,9 @@
     <string name="favorites_title">Избранное</string>
     <string name="favorites_remove">Удалить из избранного</string>
     <string name="favorites_retry">Повторить</string>
+    <string name="favorites_details">Подробнее</string>
+    <string name="favorites_empty_title">Список избранного пуст</string>
+    <string name="favorites_empty_subtitle">Добавьте курсы в избранное на главном экране</string>
+    <string name="favorites_empty_illustration">Иллюстрация пустого состояния</string>
+    <string name="favorites_course_cover">Обложка курса</string>
 </resources>

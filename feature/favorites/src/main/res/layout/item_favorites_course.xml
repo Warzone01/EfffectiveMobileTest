@@ -1,69 +1,141 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/favorite_card_root"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginHorizontal="16dp"
-    android:layout_marginTop="8dp"
-    android:layout_marginBottom="8dp"
-    android:background="@android:color/white"
-    android:orientation="vertical"
-    android:padding="12dp">
+    android:layout_height="@dimen/favorites_card_height"
+    android:background="@drawable/bg_favorites_card"
+    android:clickable="true"
+    android:focusable="true"
+    android:foreground="?attr/selectableItemBackground">
+
+    <ImageView
+        android:id="@+id/favorite_course_cover"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/favorites_cover_height"
+        android:contentDescription="@string/favorites_course_cover"
+        android:scaleType="centerCrop"
+        android:src="@drawable/bg_favorites_cover_placeholder"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_vertical"
-        android:orientation="horizontal">
+        android:id="@+id/layout_favorites_meta"
+        android:layout_width="wrap_content"
+        android:layout_height="22dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginBottom="8dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="@id/favorite_course_cover"
+        app:layout_constraintStart_toStartOf="@id/favorite_course_cover">
 
-        <TextView
-            android:id="@+id/favorite_course_title"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:textAppearance="@style/TextAppearance.Material3.TitleMedium" />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@drawable/bg_favorites_glass_chip"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingStart="6dp"
+            android:paddingEnd="6dp">
 
-        <ImageButton
-            android:id="@+id/favorite_course_remove"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:background="@android:color/transparent"
-            android:contentDescription="@string/favorites_remove"
-            android:src="@android:drawable/btn_star_big_on" />
-    </LinearLayout>
+            <ImageView
+                android:layout_width="12dp"
+                android:layout_height="12dp"
+                android:src="@drawable/ic_favorites_star" />
 
-    <TextView
-        android:id="@+id/favorite_course_description"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ellipsize="end"
-        android:maxLines="2"
-        android:textAppearance="@style/TextAppearance.Material3.BodyMedium" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:orientation="horizontal">
-
-        <TextView
-            android:id="@+id/favorite_course_price"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:textAppearance="@style/TextAppearance.Material3.BodySmall" />
+            <TextView
+                android:id="@+id/favorite_course_rate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:textAppearance="@style/TextAppearance.Favorites.Caption" />
+        </LinearLayout>
 
         <TextView
             android:id="@+id/favorite_course_date"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="12dp"
-            android:textAppearance="@style/TextAppearance.Material3.BodySmall" />
-
-        <TextView
-            android:id="@+id/favorite_course_rate"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="@style/TextAppearance.Material3.BodySmall" />
+            android:layout_height="match_parent"
+            android:layout_marginStart="4dp"
+            android:background="@drawable/bg_favorites_glass_chip"
+            android:gravity="center_vertical"
+            android:paddingStart="6dp"
+            android:paddingEnd="6dp"
+            android:textAppearance="@style/TextAppearance.Favorites.Caption" />
     </LinearLayout>
 
-</LinearLayout>
+    <ImageButton
+        android:id="@+id/favorite_course_remove"
+        android:layout_width="@dimen/favorites_icon_button_size"
+        android:layout_height="@dimen/favorites_icon_button_size"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/bg_favorites_favorite_button"
+        android:contentDescription="@string/favorites_remove"
+        android:padding="6dp"
+        android:src="@drawable/selector_favorites_remove_icon"
+        app:layout_constraintEnd_toEndOf="@id/favorite_course_cover"
+        app:layout_constraintTop_toTopOf="@id/favorite_course_cover" />
+
+    <TextView
+        android:id="@+id/favorite_course_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:textAppearance="@style/TextAppearance.Favorites.TitleMedium"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/favorite_course_cover" />
+
+    <TextView
+        android:id="@+id/favorite_course_description"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="16dp"
+        android:ellipsize="end"
+        android:maxLines="2"
+        android:textAppearance="@style/TextAppearance.Favorites.BodySmall"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/favorite_course_title" />
+
+    <TextView
+        android:id="@+id/favorite_course_price"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="8dp"
+        android:textAppearance="@style/TextAppearance.Favorites.TitleMedium"
+        app:layout_constraintEnd_toStartOf="@id/layout_favorites_more"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/favorite_course_description" />
+
+    <LinearLayout
+        android:id="@+id/layout_favorites_more"
+        android:layout_width="wrap_content"
+        android:layout_height="16dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="16dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/favorite_course_description">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/favorites_details"
+            android:textAppearance="@style/TextAppearance.Favorites.LabelSmall" />
+
+        <ImageView
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:src="@drawable/ic_favorites_arrow_right" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

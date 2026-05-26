@@ -13,6 +13,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.kirdevelopment.core.common.ui.UiText
 import com.kirdevelopment.feature.favorites.databinding.FragmentFavoritesBinding
+import com.kirdevelopment.feature.favorites.presentation.favorites.ui.FavoritesItemSpacingDecoration
 import com.kirdevelopment.feature.favorites.presentation.favorites.FavoritesUiEffect
 import com.kirdevelopment.feature.favorites.presentation.favorites.FavoritesUiEvent
 import com.kirdevelopment.feature.favorites.presentation.favorites.FavoritesViewModel
@@ -67,7 +68,13 @@ class FavoritesFragment : Fragment() {
 
     private fun setupRecycler() {
         binding.recyclerFavorites.layoutManager = LinearLayoutManager(requireContext())
+        binding.recyclerFavorites.setHasFixedSize(true)
+        binding.recyclerFavorites.itemAnimator = null
         binding.recyclerFavorites.adapter = favoritesAdapter
+        if (binding.recyclerFavorites.itemDecorationCount == 0) {
+            val spacing = resources.getDimensionPixelSize(R.dimen.favorites_item_spacing)
+            binding.recyclerFavorites.addItemDecoration(FavoritesItemSpacingDecoration(spacing))
+        }
     }
 
     private fun observeState() {

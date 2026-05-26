@@ -19,6 +19,14 @@ class FavoritesAdapter(
     private val onRetryClick: () -> Unit
 ) : ListAdapter<FavoritesAdapterItem, RecyclerView.ViewHolder>(DiffCallback) {
 
+    init {
+        setHasStableIds(true)
+    }
+
+    override fun getItemId(position: Int): Long {
+        return getItem(position).id.hashCode().toLong()
+    }
+
     override fun getItemViewType(position: Int): Int {
         return delegatesRegistry.getViewType(getItem(position))
     }

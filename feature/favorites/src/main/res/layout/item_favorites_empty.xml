@@ -1,14 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="24dp">
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:paddingTop="32dp"
+    android:paddingBottom="32dp">
+
+    <ImageView
+        android:layout_width="72dp"
+        android:layout_height="72dp"
+        android:contentDescription="@string/favorites_empty_illustration"
+        android:src="@drawable/ic_favorites_empty" />
 
     <TextView
         android:id="@+id/favorite_empty_message"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:textAppearance="@style/TextAppearance.Material3.BodyLarge" />
+        android:layout_marginTop="16dp"
+        android:text="@string/favorites_empty_title"
+        android:textAppearance="@style/TextAppearance.Favorites.TitleMedium" />
 
-</FrameLayout>
+    <TextView
+        android:id="@+id/favorite_empty_subtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/favorites_empty_subtitle"
+        android:textAppearance="@style/TextAppearance.Favorites.BodyMedium"
+        android:textColor="@color/favorites_text_primary_70" />
+
+</LinearLayout>

@@ -1,6 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="account_stub_title">Аккаунт</string>
-    <string name="account_stub_description">Раздел в разработке. Здесь появятся данные профиля и настройки.</string>
-    <string name="account_stub_icon_description">Иконка аккаунта</string>
+    <string name="account_title">Профиль</string>
+    <string name="account_menu_support">Написать в поддержку</string>
+    <string name="account_menu_settings">Настройки</string>
+    <string name="account_menu_logout">Выйти из аккаунта</string>
+    <string name="account_my_courses">Ваши курсы</string>
+
+    <string name="account_course_first_title">3D-дженералист</string>
+    <string name="account_course_second_title">Java-разработчик с нуля</string>
+    <string name="account_course_progress_first">50%%</string>
+    <string name="account_course_progress_second">30%%</string>
+    <string name="account_course_lessons_first">22/44 уроков</string>
+    <string name="account_course_lessons_second">15/48 уроков</string>
+    <string name="account_course_rate_first">3.9</string>
+    <string name="account_course_rate_second">4</string>
+    <string name="account_course_date_first">10 сентября 2024</string>
+    <string name="account_course_date_second">29 мая 2024</string>
+
+    <string name="account_menu_arrow">Перейти</string>
+    <string name="account_course_favorite">Сохранено</string>
+    <string name="account_course_cover">Обложка курса</string>
+    <string name="account_course_rating_icon">Рейтинг курса</string>
 </resources>

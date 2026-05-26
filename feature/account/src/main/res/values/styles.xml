@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="TextAppearance.Account.TitleLarge" parent="TextAppearance.Material3.TitleLarge">
+        <item name="android:textSize">@dimen/account_text_title_large</item>
+        <item name="android:textFontWeight">400</item>
+        <item name="android:lineHeight">28sp</item>
+        <item name="android:textColor">@color/account_text_primary</item>
+    </style>
+
+    <style name="TextAppearance.Account.TitleMedium" parent="TextAppearance.Material3.TitleMedium">
+        <item name="android:textSize">@dimen/account_text_title_medium</item>
+        <item name="android:textFontWeight">500</item>
+        <item name="android:lineHeight">18sp</item>
+        <item name="android:textColor">@color/account_text_primary</item>
+    </style>
+
+    <style name="TextAppearance.Account.BodyMedium" parent="TextAppearance.Material3.BodyMedium">
+        <item name="android:textSize">@dimen/account_text_body_medium</item>
+        <item name="android:textFontWeight">400</item>
+        <item name="android:lineHeight">20sp</item>
+        <item name="android:textColor">@color/account_text_primary</item>
+    </style>
+
+    <style name="TextAppearance.Account.BodySmall" parent="TextAppearance.Material3.BodySmall">
+        <item name="android:textSize">@dimen/account_text_body_small</item>
+        <item name="android:textFontWeight">400</item>
+        <item name="android:lineHeight">16sp</item>
+        <item name="android:textColor">@color/account_text_primary</item>
+    </style>
+
+    <style name="TextAppearance.Account.Caption" parent="TextAppearance.Material3.LabelSmall">
+        <item name="android:textSize">@dimen/account_text_body_small</item>
+        <item name="android:textFontWeight">400</item>
+        <item name="android:lineHeight">14sp</item>
+        <item name="android:textColor">@color/account_text_primary</item>
+    </style>
+
+    <style name="TextAppearance.Account.LabelSmall" parent="TextAppearance.Material3.LabelSmall">
+        <item name="android:textSize">@dimen/account_text_label_small</item>
+        <item name="android:textFontWeight">600</item>
+        <item name="android:lineHeight">15sp</item>
+        <item name="android:textColor">@color/account_primary_green</item>
+    </style>
+
+</resources>

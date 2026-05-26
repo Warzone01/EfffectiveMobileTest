@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="account_background_dark">#151515</color>
+    <color name="account_surface_dark">#24252A</color>
+    <color name="account_surface_glass">#4D32333A</color>
+    <color name="account_primary_green">#12B956</color>
+    <color name="account_text_primary">#F2F2F3</color>
+    <color name="account_text_primary_70">#B3F2F2F3</color>
+    <color name="account_divider">#4D555E</color>
+    <color name="account_bookmark_chip">#9B8A2F</color>
+
+    <color name="account_cover_first_start">#C89A77</color>
+    <color name="account_cover_first_end">#8B5E43</color>
+    <color name="account_cover_second_start">#FFC232</color>
+    <color name="account_cover_second_end">#E19016</color>
+</resources>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="account_screen_padding_horizontal">16dp</dimen>
+    <dimen name="account_screen_top">40dp</dimen>
+    <dimen name="account_menu_top">16dp</dimen>
+    <dimen name="account_section_top">32dp</dimen>
+    <dimen name="account_card_spacing">16dp</dimen>
+    <dimen name="account_content_bottom">24dp</dimen>
+    <dimen name="account_space_xs">4dp</dimen>
+    <dimen name="account_space_sm">8dp</dimen>
+    <dimen name="account_space_md">12dp</dimen>
+    <dimen name="account_space_lg">16dp</dimen>
+
+    <dimen name="account_menu_radius">20dp</dimen>
+    <dimen name="account_menu_row_height">56dp</dimen>
+    <dimen name="account_menu_row_padding_horizontal">16dp</dimen>
+    <dimen name="account_menu_arrow_size">24dp</dimen>
+    <dimen name="account_menu_divider_height">1dp</dimen>
+    <dimen name="account_card_radius">16dp</dimen>
+    <dimen name="account_cover_radius">12dp</dimen>
+    <dimen name="account_cover_height">114dp</dimen>
+    <dimen name="account_chip_height">22dp</dimen>
+    <dimen name="account_chip_radius">12dp</dimen>
+    <dimen name="account_chip_padding_horizontal">6dp</dimen>
+    <dimen name="account_chip_icon_size">12dp</dimen>
+    <dimen name="account_bookmark_size">28dp</dimen>
+    <dimen name="account_bookmark_icon_size">16dp</dimen>
+    <dimen name="account_bookmark_margin">8dp</dimen>
+    <dimen name="account_progress_height">4dp</dimen>
+    <dimen name="account_progress_radius">100dp</dimen>
+    <dimen name="account_card_content_padding_horizontal">16dp</dimen>
+    <dimen name="account_card_title_top">16dp</dimen>
+    <dimen name="account_card_progress_top">10dp</dimen>
+    <dimen name="account_card_content_bottom">16dp</dimen>
+
+    <dimen name="account_text_title_large">22sp</dimen>
+    <dimen name="account_text_title_medium">16sp</dimen>
+    <dimen name="account_text_body_medium">14sp</dimen>
+    <dimen name="account_text_body_small">12sp</dimen>
+    <dimen name="account_text_label_small">12sp</dimen>
+</resources>

@@ -1,32 +1,382 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center_horizontal"
-    android:orientation="vertical"
-    android:padding="24dp">
+    android:background="@color/account_background_dark"
+    android:clipToPadding="false"
+    android:fillViewport="true">
 
-    <ImageView
-        android:layout_width="72dp"
-        android:layout_height="72dp"
-        android:layout_marginTop="40dp"
-        android:contentDescription="@string/account_stub_icon_description"
-        android:src="@android:drawable/ic_menu_myplaces" />
-
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:gravity="center"
-        android:text="@string/account_stub_title"
-        android:textAppearance="@style/TextAppearance.Material3.TitleLarge" />
+        android:orientation="vertical"
+        android:paddingStart="@dimen/account_screen_padding_horizontal"
+        android:paddingTop="@dimen/account_screen_top"
+        android:paddingEnd="@dimen/account_screen_padding_horizontal"
+        android:paddingBottom="@dimen/account_content_bottom">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:gravity="center"
-        android:text="@string/account_stub_description"
-        android:textAppearance="@style/TextAppearance.Material3.BodyMedium" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/account_title"
+            android:textAppearance="@style/TextAppearance.Account.TitleLarge" />
 
-</LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/account_menu_top"
+            android:background="@drawable/bg_account_menu"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/account_menu_row_height"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackground"
+                android:gravity="center_vertical"
+                android:paddingStart="@dimen/account_menu_row_padding_horizontal"
+                android:paddingEnd="@dimen/account_menu_row_padding_horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/account_menu_support"
+                    android:textAppearance="@style/TextAppearance.Account.TitleMedium" />
+
+                <ImageView
+                    android:layout_width="@dimen/account_menu_arrow_size"
+                    android:layout_height="@dimen/account_menu_arrow_size"
+                    android:contentDescription="@string/account_menu_arrow"
+                    android:src="@drawable/ic_account_arrow_right" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/account_menu_divider_height"
+                android:layout_marginStart="@dimen/account_menu_row_padding_horizontal"
+                android:layout_marginEnd="@dimen/account_menu_row_padding_horizontal"
+                android:background="@color/account_divider" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/account_menu_row_height"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackground"
+                android:gravity="center_vertical"
+                android:paddingStart="@dimen/account_menu_row_padding_horizontal"
+                android:paddingEnd="@dimen/account_menu_row_padding_horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/account_menu_settings"
+                    android:textAppearance="@style/TextAppearance.Account.TitleMedium" />
+
+                <ImageView
+                    android:layout_width="@dimen/account_menu_arrow_size"
+                    android:layout_height="@dimen/account_menu_arrow_size"
+                    android:contentDescription="@string/account_menu_arrow"
+                    android:src="@drawable/ic_account_arrow_right" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/account_menu_divider_height"
+                android:layout_marginStart="@dimen/account_menu_row_padding_horizontal"
+                android:layout_marginEnd="@dimen/account_menu_row_padding_horizontal"
+                android:background="@color/account_divider" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/account_menu_row_height"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackground"
+                android:gravity="center_vertical"
+                android:paddingStart="@dimen/account_menu_row_padding_horizontal"
+                android:paddingEnd="@dimen/account_menu_row_padding_horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/account_menu_logout"
+                    android:textAppearance="@style/TextAppearance.Account.TitleMedium" />
+
+                <ImageView
+                    android:layout_width="@dimen/account_menu_arrow_size"
+                    android:layout_height="@dimen/account_menu_arrow_size"
+                    android:contentDescription="@string/account_menu_arrow"
+                    android:src="@drawable/ic_account_arrow_right" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/account_section_top"
+            android:text="@string/account_my_courses"
+            android:textAppearance="@style/TextAppearance.Account.TitleLarge" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/account_space_lg"
+            android:background="@drawable/bg_account_course_card"
+            android:orientation="vertical">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/account_cover_height"
+                android:background="@drawable/bg_account_cover_first">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/account_chip_height"
+                    android:layout_gravity="bottom|start"
+                    android:layout_marginStart="@dimen/account_space_sm"
+                    android:layout_marginBottom="@dimen/account_space_sm"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/bg_account_glass_chip"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:paddingStart="@dimen/account_chip_padding_horizontal"
+                        android:paddingEnd="@dimen/account_chip_padding_horizontal">
+
+                        <ImageView
+                            android:layout_width="@dimen/account_chip_icon_size"
+                            android:layout_height="@dimen/account_chip_icon_size"
+                            android:contentDescription="@string/account_course_rating_icon"
+                            android:src="@drawable/ic_account_star" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/account_space_xs"
+                            android:text="@string/account_course_rate_first"
+                            android:textAppearance="@style/TextAppearance.Account.Caption" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="@dimen/account_space_xs"
+                        android:background="@drawable/bg_account_glass_chip"
+                        android:gravity="center_vertical"
+                        android:paddingStart="@dimen/account_chip_padding_horizontal"
+                        android:paddingEnd="@dimen/account_chip_padding_horizontal"
+                        android:text="@string/account_course_date_first"
+                        android:textAppearance="@style/TextAppearance.Account.Caption" />
+                </LinearLayout>
+
+                <FrameLayout
+                    android:layout_width="@dimen/account_bookmark_size"
+                    android:layout_height="@dimen/account_bookmark_size"
+                    android:layout_gravity="top|end"
+                    android:layout_marginTop="@dimen/account_bookmark_margin"
+                    android:layout_marginEnd="@dimen/account_bookmark_margin"
+                    android:background="@drawable/bg_account_bookmark_chip"
+                    android:foreground="?attr/selectableItemBackgroundBorderless">
+
+                    <ImageView
+                        android:layout_width="@dimen/account_bookmark_icon_size"
+                        android:layout_height="@dimen/account_bookmark_icon_size"
+                        android:layout_gravity="center"
+                        android:contentDescription="@string/account_course_favorite"
+                        android:src="@drawable/ic_account_bookmark" />
+                </FrameLayout>
+            </FrameLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/account_card_content_padding_horizontal"
+                android:layout_marginTop="@dimen/account_card_title_top"
+                android:layout_marginEnd="@dimen/account_card_content_padding_horizontal"
+                android:text="@string/account_course_first_title"
+                android:textAppearance="@style/TextAppearance.Account.TitleLarge" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/account_card_progress_top"
+                android:layout_marginStart="@dimen/account_card_content_padding_horizontal"
+                android:layout_marginEnd="@dimen/account_card_content_padding_horizontal"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/account_course_progress_first"
+                    android:textAppearance="@style/TextAppearance.Account.LabelSmall" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/account_course_lessons_first"
+                    android:textAppearance="@style/TextAppearance.Account.BodyMedium" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/account_progress_height"
+                android:layout_marginTop="@dimen/account_space_sm"
+                android:layout_marginStart="@dimen/account_card_content_padding_horizontal"
+                android:layout_marginEnd="@dimen/account_card_content_padding_horizontal"
+                android:layout_marginBottom="@dimen/account_card_content_bottom"
+                android:background="@drawable/bg_account_progress_track"
+                android:orientation="horizontal">
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_account_progress_value" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/account_card_spacing"
+            android:background="@drawable/bg_account_course_card"
+            android:orientation="vertical">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/account_cover_height"
+                android:background="@drawable/bg_account_cover_second">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/account_chip_height"
+                    android:layout_gravity="bottom|start"
+                    android:layout_marginStart="@dimen/account_space_sm"
+                    android:layout_marginBottom="@dimen/account_space_sm"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/bg_account_glass_chip"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:paddingStart="@dimen/account_chip_padding_horizontal"
+                        android:paddingEnd="@dimen/account_chip_padding_horizontal">
+
+                        <ImageView
+                            android:layout_width="@dimen/account_chip_icon_size"
+                            android:layout_height="@dimen/account_chip_icon_size"
+                            android:contentDescription="@string/account_course_rating_icon"
+                            android:src="@drawable/ic_account_star" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/account_space_xs"
+                            android:text="@string/account_course_rate_second"
+                            android:textAppearance="@style/TextAppearance.Account.Caption" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="@dimen/account_space_xs"
+                        android:background="@drawable/bg_account_glass_chip"
+                        android:gravity="center_vertical"
+                        android:paddingStart="@dimen/account_chip_padding_horizontal"
+                        android:paddingEnd="@dimen/account_chip_padding_horizontal"
+                        android:text="@string/account_course_date_second"
+                        android:textAppearance="@style/TextAppearance.Account.Caption" />
+                </LinearLayout>
+
+                <FrameLayout
+                    android:layout_width="@dimen/account_bookmark_size"
+                    android:layout_height="@dimen/account_bookmark_size"
+                    android:layout_gravity="top|end"
+                    android:layout_marginTop="@dimen/account_bookmark_margin"
+                    android:layout_marginEnd="@dimen/account_bookmark_margin"
+                    android:background="@drawable/bg_account_bookmark_chip"
+                    android:foreground="?attr/selectableItemBackgroundBorderless">
+
+                    <ImageView
+                        android:layout_width="@dimen/account_bookmark_icon_size"
+                        android:layout_height="@dimen/account_bookmark_icon_size"
+                        android:layout_gravity="center"
+                        android:contentDescription="@string/account_course_favorite"
+                        android:src="@drawable/ic_account_bookmark" />
+                </FrameLayout>
+            </FrameLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/account_card_content_padding_horizontal"
+                android:layout_marginTop="@dimen/account_card_title_top"
+                android:layout_marginEnd="@dimen/account_card_content_padding_horizontal"
+                android:text="@string/account_course_second_title"
+                android:textAppearance="@style/TextAppearance.Account.TitleLarge" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/account_card_progress_top"
+                android:layout_marginStart="@dimen/account_card_content_padding_horizontal"
+                android:layout_marginEnd="@dimen/account_card_content_padding_horizontal"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/account_course_progress_second"
+                    android:textAppearance="@style/TextAppearance.Account.LabelSmall" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/account_course_lessons_second"
+                    android:textAppearance="@style/TextAppearance.Account.BodyMedium" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/account_progress_height"
+                android:layout_marginTop="@dimen/account_space_sm"
+                android:layout_marginStart="@dimen/account_card_content_padding_horizontal"
+                android:layout_marginEnd="@dimen/account_card_content_padding_horizontal"
+                android:layout_marginBottom="@dimen/account_card_content_bottom"
+                android:background="@drawable/bg_account_progress_track"
+                android:orientation="horizontal">
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="3"
+                    android:background="@drawable/bg_account_progress_value" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="7" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+</androidx.core.widget.NestedScrollView>

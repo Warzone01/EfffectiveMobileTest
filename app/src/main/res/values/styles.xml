@@ -9,19 +9,12 @@
 
     <style name="Widget.App.BottomNavigation" parent="Widget.Material3.BottomNavigationView">
         <item name="android:background">@drawable/bg_bottom_navigation</item>
-        <item name="itemBackground">@drawable/selector_nav_item_background</item>
         <item name="itemIconTint">@color/selector_nav_item_color</item>
         <item name="itemTextColor">@color/selector_nav_item_color</item>
-        <item name="itemRippleColor">@color/selector_nav_item_ripple</item>
         <item name="itemTextAppearanceActive">@style/TextAppearance.App.BottomNav.Label</item>
         <item name="itemTextAppearanceInactive">@style/TextAppearance.App.BottomNav.Label</item>
         <item name="itemPaddingTop">@dimen/nav_item_padding_top</item>
         <item name="itemPaddingBottom">@dimen/nav_item_padding_bottom</item>
         <item name="labelVisibilityMode">labeled</item>
-
-        <!-- Отключаем анимацию -->
-        <item name="android:animateLayoutChanges">false</item>
-        <item name="android:clipChildren">false</item>
-        <item name="android:clipToPadding">false</item>
     </style>
 </resources>

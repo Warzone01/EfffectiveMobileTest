@@ -86,7 +86,8 @@ class DetailsFragment : Fragment() {
         binding.textPrice.text = getString(R.string.details_price, course.price)
         binding.textDate.text = getString(R.string.details_date, course.startDate)
         binding.textRate.text = getString(R.string.details_rate, course.rate)
-        binding.buttonToggleFavorite.text = if (course.isFavorite) {
+        binding.buttonToggleFavorite.isSelected = course.isFavorite
+        binding.buttonToggleFavorite.contentDescription = if (course.isFavorite) {
             getString(R.string.details_remove_from_favorites)
         } else {
             getString(R.string.details_add_to_favorites)

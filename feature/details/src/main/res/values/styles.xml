@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="TextAppearance.Details.TitleLarge" parent="TextAppearance.Material3.TitleLarge">
+        <item name="android:textSize">@dimen/details_text_title_large</item>
+        <item name="android:textFontWeight">400</item>
+        <item name="android:lineHeight">28sp</item>
+        <item name="android:textColor">@color/details_text_primary</item>
+    </style>
+
+    <style name="TextAppearance.Details.TitleMedium" parent="TextAppearance.Material3.TitleMedium">
+        <item name="android:textSize">@dimen/details_text_title_medium</item>
+        <item name="android:textFontWeight">500</item>
+        <item name="android:lineHeight">18sp</item>
+        <item name="android:textColor">@color/details_text_primary</item>
+    </style>
+
+    <style name="TextAppearance.Details.BodyMedium" parent="TextAppearance.Material3.BodyMedium">
+        <item name="android:textSize">@dimen/details_text_body_medium</item>
+        <item name="android:textFontWeight">400</item>
+        <item name="android:lineHeight">20sp</item>
+        <item name="android:textColor">@color/details_text_primary</item>
+    </style>
+
+    <style name="TextAppearance.Details.Caption" parent="TextAppearance.Material3.LabelSmall">
+        <item name="android:textSize">@dimen/details_text_caption</item>
+        <item name="android:textFontWeight">400</item>
+        <item name="android:lineHeight">14sp</item>
+        <item name="android:textColor">@color/details_text_primary</item>
+    </style>
+
+    <style name="TextAppearance.Details.Button" parent="TextAppearance.Material3.LabelLarge">
+        <item name="android:textSize">@dimen/details_text_body_medium</item>
+        <item name="android:textFontWeight">500</item>
+        <item name="android:lineHeight">20sp</item>
+    </style>
+
+    <style name="Widget.Details.Button.Primary" parent="Widget.Material3.Button">
+        <item name="android:background">@drawable/bg_details_button_primary</item>
+        <item name="android:backgroundTint">@null</item>
+        <item name="android:textColor">@color/details_text_primary</item>
+        <item name="android:textAppearance">@style/TextAppearance.Details.Button</item>
+        <item name="android:minHeight">@dimen/details_action_button_height</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="android:insetLeft">0dp</item>
+        <item name="android:insetRight">0dp</item>
+    </style>
+
+    <style name="Widget.Details.Button.Secondary" parent="Widget.Material3.Button">
+        <item name="android:background">@drawable/bg_details_button_secondary</item>
+        <item name="android:backgroundTint">@null</item>
+        <item name="android:textColor">@color/details_text_primary</item>
+        <item name="android:textAppearance">@style/TextAppearance.Details.Button</item>
+        <item name="android:minHeight">@dimen/details_action_button_height</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="android:insetLeft">0dp</item>
+        <item name="android:insetRight">0dp</item>
+    </style>
+
+</resources>

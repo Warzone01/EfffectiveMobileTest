@@ -7,8 +7,6 @@
     <string name="details_add_to_favorites">Перейти на платформу</string>
     <string name="details_remove_from_favorites">Удалить из избранного</string>
     <string name="details_price">Цена: %1$s</string>
-    <string name="details_date">Старт: %1$s</string>
-    <string name="details_rate">Рейтинг: %1$s</string>
     <string name="details_about">О курсе</string>
     <string name="details_author_name">Автор курса</string>
     <string name="details_author_subtitle">Образовательная платформа</string>

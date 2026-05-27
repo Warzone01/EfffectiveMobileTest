@@ -83,7 +83,6 @@ class DetailsFragment : Fragment() {
     private fun bindContent(course: DetailsCourseUiModel) {
         binding.textTitle.text = course.title
         binding.textDescription.text = course.description
-        binding.textPrice.text = getString(R.string.details_price, course.price)
         binding.textDate.text = getString(R.string.details_date, course.startDate)
         binding.textRate.text = getString(R.string.details_rate, course.rate)
         binding.buttonToggleFavorite.isSelected = course.isFavorite

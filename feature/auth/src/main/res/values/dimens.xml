@@ -22,7 +22,7 @@
     <dimen name="auth_button_radius">30dp</dimen>
     <dimen name="auth_divider_height">1dp</dimen>
     <dimen name="auth_social_button_width">156dp</dimen>
-    <dimen name="auth_social_icon_size">16dp</dimen>
+    <dimen name="auth_social_icon_size">40dp</dimen>
 
     <dimen name="auth_text_size_headline_large">28sp</dimen>
     <dimen name="auth_text_size_title_medium">16sp</dimen>

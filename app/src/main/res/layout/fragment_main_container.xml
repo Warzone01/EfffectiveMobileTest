@@ -18,7 +18,7 @@
         android:id="@+id/bottom_navigation"
         style="@style/Widget.App.BottomNavigation"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/nav_height"
+        android:layout_height="wrap_content"
         app:menu="@menu/menu_bottom_navigation" />
 
 </LinearLayout>

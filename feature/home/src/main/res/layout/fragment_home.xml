@@ -5,69 +5,64 @@
     android:layout_height="match_parent"
     android:background="@color/home_background_dark">
 
-    <TextView
-        android:id="@+id/text_home_title"
+    <LinearLayout
+        android:id="@+id/home_controls_container"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/home_spacing_lg"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginTop="16dp"
         android:layout_marginStart="@dimen/home_screen_horizontal_padding"
         android:layout_marginEnd="@dimen/home_screen_horizontal_padding"
-        android:text="@string/home_title"
-        android:textAppearance="@style/TextAppearance.Home.TitleLarge"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/layout_search_stub"
-        style="@style/Widget.Home.SearchField"
-        android:layout_width="@dimen/home_search_width"
-        android:layout_height="@dimen/home_search_height"
-        android:layout_marginTop="@dimen/home_top_controls_top"
-        android:layout_marginStart="@dimen/home_screen_horizontal_padding"
-        android:hint="@string/home_search_stub"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:startIconDrawable="@drawable/ic_home_search"
-        app:startIconTint="@color/home_text_primary"
-        app:startIconMinSize="@dimen/home_search_icon_container">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/edit_search_stub"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/layout_search_stub"
+            style="@style/Widget.Home.SearchField"
+            android:layout_weight="1"
+            android:layout_width="@dimen/home_search_width"
+            android:layout_height="@dimen/home_search_height"
+            android:hint="@string/home_search_stub"
+            app:startIconDrawable="@drawable/ic_home_search"
+            app:startIconTint="@color/home_text_primary"
+            app:startIconMinSize="@dimen/home_search_icon_container">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edit_search_stub"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:enabled="false"
+                android:focusable="false"
+                android:inputType="none"
+                android:textAppearance="@style/TextAppearance.Home.BodyMedium"
+                android:textColor="@color/home_text_primary"
+                android:textColorHint="@color/home_text_primary_50" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <ImageButton
+            android:id="@+id/button_filter_stub"
+            android:layout_width="@dimen/home_filter_size"
+            android:layout_height="@dimen/home_filter_size"
+            android:background="@drawable/bg_home_filter_button"
+            android:layout_marginStart="8dp"
+            android:contentDescription="@string/home_filter_stub"
             android:enabled="false"
-            android:focusable="false"
-            android:inputType="none"
-            android:textAppearance="@style/TextAppearance.Home.BodyMedium"
-            android:textColor="@color/home_text_primary"
-            android:textColorHint="@color/home_text_primary_50" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <ImageButton
-        android:id="@+id/button_filter_stub"
-        android:layout_width="@dimen/home_filter_size"
-        android:layout_height="@dimen/home_filter_size"
-        android:layout_marginTop="@dimen/home_top_controls_top"
-        android:layout_marginEnd="@dimen/home_screen_horizontal_padding"
-        android:background="@drawable/bg_home_filter_button"
-        android:contentDescription="@string/home_filter_stub"
-        android:enabled="false"
-        android:src="@drawable/ic_home_filter"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+            android:src="@drawable/ic_home_filter" />
+    </LinearLayout>
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/button_sort"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/home_sort_top"
         android:layout_marginEnd="@dimen/home_screen_horizontal_padding"
         android:backgroundTint="@android:color/transparent"
         android:insetTop="0dp"
         android:insetBottom="0dp"
         android:minWidth="0dp"
         android:minHeight="0dp"
+        android:layout_marginTop="16dp"
         android:padding="0dp"
         android:text="@string/home_sort"
         android:textAllCaps="false"
@@ -77,21 +72,21 @@
         app:iconGravity="textEnd"
         app:iconPadding="@dimen/home_spacing_xs"
         app:iconTint="@color/home_primary_green"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/home_controls_container"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_home"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginTop="@dimen/home_recycler_top"
         android:clipToPadding="false"
+        android:layout_marginTop="16dp"
         android:paddingStart="@dimen/home_screen_horizontal_padding"
         android:paddingEnd="@dimen/home_screen_horizontal_padding"
         android:paddingBottom="@dimen/home_spacing_lg"
+        app:layout_constraintTop_toBottomOf="@id/button_sort"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

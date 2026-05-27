@@ -86,11 +86,6 @@ class HomeFragment : Fragment() {
         viewModel.uiState.onEach { state ->
             val adapterItems = stateItemsMapper.map(state)
             homeAdapter.submitList(adapterItems)
-            binding.buttonSort.text = if (state.isSortDescending) {
-                getString(R.string.home_sort) + " ↓"
-            } else {
-                getString(R.string.home_sort) + " ↑"
-            }
         }.launchIn(viewLifecycleOwner.lifecycleScope)
     }
 

@@ -61,6 +61,7 @@
         <item name="android:insetRight">0dp</item>
         <item name="android:paddingStart">@dimen/auth_button_horizontal_padding</item>
         <item name="android:paddingEnd">@dimen/auth_button_horizontal_padding</item>
+        <item name="backgroundTint">@color/auth_primary_green</item>
     </style>
 
     <style name="Widget.Auth.Button.Social" parent="Widget.Material3.Button">
@@ -75,6 +76,10 @@
         <item name="android:insetRight">0dp</item>
         <item name="android:minWidth">0dp</item>
         <item name="android:minHeight">0dp</item>
+
+        <!-- Важно: отключаем стандартный фон и используем backgroundTint -->
+        <item name="backgroundTint">?attr/colorSurface</item>
+        <item name="android:backgroundTint">?attr/colorSurface</item>
     </style>
 
 </resources>

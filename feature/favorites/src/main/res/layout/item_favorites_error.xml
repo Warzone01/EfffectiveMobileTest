@@ -10,6 +10,7 @@
         android:id="@+id/favorite_error_message"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textColor="@color/favorites_text_primary"
         android:gravity="center"
         android:textAppearance="@style/TextAppearance.Material3.BodyLarge" />
 
@@ -20,6 +21,7 @@
         android:layout_marginTop="12dp"
         android:paddingHorizontal="12dp"
         android:paddingVertical="6dp"
+        android:textColor="@color/favorites_primary_green"
         android:text="@string/favorites_retry"
         android:textAppearance="@style/TextAppearance.Material3.LabelLarge" />
 

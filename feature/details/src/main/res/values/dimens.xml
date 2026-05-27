@@ -22,6 +22,7 @@
     <dimen name="details_space_lg">16dp</dimen>
     <dimen name="details_space_xl">20dp</dimen>
     <dimen name="details_space_2xl">24dp</dimen>
+    <dimen name="details_space_3xl">32dp</dimen>
 
     <dimen name="details_text_title_large">22sp</dimen>
     <dimen name="details_text_title_medium">16sp</dimen>

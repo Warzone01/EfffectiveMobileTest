@@ -3,8 +3,8 @@
     <string name="details_title">Детали курса</string>
     <string name="details_back">Назад</string>
     <string name="details_retry">Повторить</string>
-    <string name="details_action">Перейти к обучению</string>
-    <string name="details_add_to_favorites">Добавить в избранное</string>
+    <string name="details_action">Начать курс</string>
+    <string name="details_add_to_favorites">Перейти на платформу</string>
     <string name="details_remove_from_favorites">Удалить из избранного</string>
     <string name="details_price">Цена: %1$s</string>
     <string name="details_date">Старт: %1$s</string>

@@ -180,14 +180,14 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/details_author_name"
-                        android:textAppearance="@style/TextAppearance.Details.TitleMedium" />
+                        android:textAppearance="@style/TextAppearance.Details.Caption" />
 
                     <TextView
                         android:id="@+id/text_author_subtitle"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/details_author_subtitle"
-                        android:textAppearance="@style/TextAppearance.Details.Caption"
+                        android:textAppearance="@style/TextAppearance.Details.TitleMedium"
                         android:textColor="@color/details_text_primary_50" />
                 </LinearLayout>
             </LinearLayout>
@@ -196,13 +196,13 @@
                 android:id="@+id/layout_actions"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/details_space_lg"
+                android:layout_marginTop="@dimen/details_space_3xl"
                 android:layout_marginStart="@dimen/details_screen_padding_horizontal"
                 android:layout_marginEnd="@dimen/details_screen_padding_horizontal"
                 android:orientation="vertical"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/text_price">
+                app:layout_constraintTop_toBottomOf="@id/layout_author">
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/button_action"
@@ -241,22 +241,9 @@
                 android:layout_marginEnd="@dimen/details_screen_padding_horizontal"
                 android:textAppearance="@style/TextAppearance.Details.BodyMedium"
                 android:textColor="@color/details_text_primary_70"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/text_about_title" />
-
-            <TextView
-                android:id="@+id/text_price"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/details_screen_padding_horizontal"
-                android:layout_marginEnd="@dimen/details_screen_padding_horizontal"
-                android:layout_marginTop="@dimen/details_space_md"
-                android:textAppearance="@style/TextAppearance.Details.TitleMedium"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/layout_author" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>

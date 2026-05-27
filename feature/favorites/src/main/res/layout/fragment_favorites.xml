@@ -23,7 +23,7 @@
         android:id="@+id/recycler_favorites"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginTop="@dimen/favorites_list_top"
+        android:layout_marginTop="0dp"
         android:clipToPadding="false"
         android:paddingStart="@dimen/favorites_screen_padding_horizontal"
         android:paddingEnd="@dimen/favorites_screen_padding_horizontal"
@@ -32,6 +32,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/text_favorites_title" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

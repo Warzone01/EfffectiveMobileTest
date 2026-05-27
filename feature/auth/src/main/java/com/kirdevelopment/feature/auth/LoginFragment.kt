@@ -3,10 +3,13 @@ package com.kirdevelopment.feature.auth
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.text.style.ForegroundColorSpan
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.content.ContextCompat
+import androidx.core.text.toSpannable
 import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -44,6 +47,7 @@ class LoginFragment : Fragment() {
         setupObservers()
         setupClickListeners()
         setupInputListeners()
+        setupHighlightedText()
     }
 
     private fun setupObservers() {
@@ -82,6 +86,31 @@ class LoginFragment : Fragment() {
         binding.inputPassword.doAfterTextChanged { editable ->
             viewModel.onEvent(LoginUiEvent.PasswordChanged(editable?.toString().orEmpty()))
         }
+    }
+
+    private fun setupHighlightedText() {
+        val fullText = getString(R.string.login_action_signup)
+        val registrationText = getString(R.string.registration)
+        val spannable = fullText.toSpannable()
+
+        val startIndex = fullText.indexOf(registrationText)
+        val endIndex = startIndex + registrationText.length
+
+        if (startIndex != -1) {
+            spannable.setSpan(
+                ForegroundColorSpan(
+                    ContextCompat.getColor(
+                        requireContext(),
+                        R.color.auth_primary_green
+                    )
+                ),
+                startIndex,
+                endIndex,
+                0
+            )
+        }
+
+        binding.textActionSignup.text = spannable
     }
 
     /**

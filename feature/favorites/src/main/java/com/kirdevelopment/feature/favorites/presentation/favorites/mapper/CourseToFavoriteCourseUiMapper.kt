@@ -14,7 +14,7 @@ class CourseToFavoriteCourseUiMapper @Inject constructor(
         return FavoriteCourseUiModel(
             courseId = input.id,
             title = input.title,
-            description = input.text,
+            description = "${input.price} ₽",
             price = input.price,
             startDate = dateFormatter.format(input.startDate),
             rate = input.rate

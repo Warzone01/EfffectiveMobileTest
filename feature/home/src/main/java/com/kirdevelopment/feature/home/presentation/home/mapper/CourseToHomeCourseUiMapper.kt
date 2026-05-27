@@ -15,7 +15,7 @@ class CourseToHomeCourseUiMapper @Inject constructor(
             id = input.id,
             title = input.title,
             description = input.text,
-            price = input.price,
+            price = "${input.price} ₽" ,
             startDate = dateFormatter.format(input.startDate),
             rate = input.rate,
             isFavorite = input.hasLike

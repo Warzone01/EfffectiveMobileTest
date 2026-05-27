@@ -7,6 +7,13 @@
         <item name="android:lineHeight">16sp</item>
     </style>
 
+    <style name="Widget.App.BottomNavigation.ActiveIndicator">
+        <item name="android:color">@color/nav_active_indicator</item>
+        <item name="android:width">@dimen/nav_active_indicator_width</item>
+        <item name="android:height">@dimen/nav_active_indicator_height</item>
+        <item name="shapeAppearance">@style/ShapeAppearance.App.BottomNav.ActiveIndicator</item>
+    </style>
+
     <style name="Widget.App.BottomNavigation" parent="Widget.Material3.BottomNavigationView">
         <item name="android:background">@drawable/bg_bottom_navigation</item>
         <item name="itemIconTint">@color/selector_nav_item_color</item>
@@ -16,5 +23,6 @@
         <item name="itemPaddingTop">@dimen/nav_item_padding_top</item>
         <item name="itemPaddingBottom">@dimen/nav_item_padding_bottom</item>
         <item name="labelVisibilityMode">labeled</item>
+        <item name="itemActiveIndicatorStyle">@style/Widget.App.BottomNavigation.ActiveIndicator</item>
     </style>
 </resources>

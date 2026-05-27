@@ -9,4 +9,5 @@
     <color name="nav_text_primary">#F2F2F3</color>
     <color name="nav_divider">#4D555E</color>
     <color name="nav_ripple">#33FFFFFF</color>
+    <color name="nav_active_indicator">#32333A</color>
 </resources>

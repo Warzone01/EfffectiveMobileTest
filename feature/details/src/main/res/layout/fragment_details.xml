@@ -103,7 +103,7 @@
                     android:background="@drawable/bg_details_floating_button"
                     android:contentDescription="@string/details_favorite"
                     android:elevation="4dp"
-                    android:src="@drawable/selector_details_favorite_icon" />
+                    android:src="@drawable/selector_details_favorite_icon"/>
 
                 <LinearLayout
                     android:layout_width="wrap_content"

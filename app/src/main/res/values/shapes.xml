@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="ShapeAppearance.App.BottomNav.ActiveIndicator" parent="ShapeAppearance.Material3.Corner.Full">
+        <item name="cornerSize">@dimen/nav_active_indicator_radius</item>
+    </style>
+</resources>

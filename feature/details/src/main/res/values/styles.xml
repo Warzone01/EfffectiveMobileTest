@@ -38,6 +38,7 @@
     <style name="Widget.Details.Button.Primary" parent="Widget.Material3.Button">
         <item name="android:background">@drawable/bg_details_button_primary</item>
         <item name="android:backgroundTint">@null</item>
+        <item name="backgroundTint">@null</item>
         <item name="android:textColor">@color/details_text_primary</item>
         <item name="android:textAppearance">@style/TextAppearance.Details.Button</item>
         <item name="android:minHeight">@dimen/details_action_button_height</item>
@@ -45,11 +46,17 @@
         <item name="android:insetBottom">0dp</item>
         <item name="android:insetLeft">0dp</item>
         <item name="android:insetRight">0dp</item>
+        <item name="shapeAppearanceOverlay">@null</item>
+        <item name="strokeWidth">0dp</item>
+        <item name="strokeColor">@android:color/transparent</item>
+        <item name="elevation">0dp</item>
+        <item name="rippleColor">@android:color/transparent</item>
     </style>
 
     <style name="Widget.Details.Button.Secondary" parent="Widget.Material3.Button">
         <item name="android:background">@drawable/bg_details_button_secondary</item>
         <item name="android:backgroundTint">@null</item>
+        <item name="backgroundTint">@null</item>
         <item name="android:textColor">@color/details_text_primary</item>
         <item name="android:textAppearance">@style/TextAppearance.Details.Button</item>
         <item name="android:minHeight">@dimen/details_action_button_height</item>
@@ -57,6 +64,11 @@
         <item name="android:insetBottom">0dp</item>
         <item name="android:insetLeft">0dp</item>
         <item name="android:insetRight">0dp</item>
+        <item name="shapeAppearanceOverlay">@null</item>
+        <item name="strokeWidth">0dp</item>
+        <item name="strokeColor">@android:color/transparent</item>
+        <item name="elevation">0dp</item>
+        <item name="rippleColor">@android:color/transparent</item>
     </style>
 
 </resources>

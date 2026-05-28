@@ -5,6 +5,12 @@
 
 ---
 
+# BUILD-файл 
+
+## **app-debug.apk** - лежит в корне проекта, можно скачать и запустить!
+
+---
+
 ## Архитектура
 
 **MVVM** (Model-View-ViewModel) с **Clean Architecture** в расслоении модулей.
